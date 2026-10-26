@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Tests and coverage
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Streamlit configuration and secrets
+.streamlit/
+
+# Hugging Face caches
+.hfcache/
+.huggingface/
+.cache/
+
+# Never publish generated model weights or training checkpoints
+/models/**
+!/models/.gitkeep
+*.safetensors
+pytorch_model.bin
+*.ckpt
+*.pth
+*.pt
+
+# Generated training output
+/outputs/**
+!/outputs/.gitkeep
+
+# Logs and temporary files
+*.log
+temp/
+
+# Operating system files
+.DS_Store
+Thumbs.db
