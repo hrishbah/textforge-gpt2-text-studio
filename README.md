@@ -180,7 +180,17 @@ python train.py \
 
 ## How to launch the app with the fine-tuned model
 
-After a successful training run (the `models/gpt2-finetuned/` directory must contain checkpoint files):
+The app looks for a fine-tuned checkpoint in `models/gpt2-finetuned/`. The short smoke test above writes to `outputs/gpt2-smoke-test-fresh/` and validates training; it does not automatically make the app use that checkpoint.
+
+On a fresh clone, create a checkpoint at the path expected by the app with this short CPU run:
+
+```bash
+python train.py --model-name gpt2 --data-path data/train.txt --output-dir models/gpt2-finetuned --epochs 1 --batch-size 1 --block-size 32 --max-steps 2 --device cpu
+```
+
+The generated checkpoint stays local and is excluded from Git by `.gitignore`.
+
+After training, continue with these steps:
 
 1. Restart the app: `streamlit run app.py`
 2. In the sidebar, select **"Fine-tuned GPT-2 (local)"**.
